@@ -187,6 +187,16 @@
                             <span class="author-block">
                                 Siyu Mei<sup>5</sup>,</span>
                             <span class="author-block">
+                                Dongzhan Zhou<sup>6</sup>,</span>
+                            <span class="author-block">
+                                Pengwei Wang<sup>4</sup>,</span> 
+                            <span class="author-block">
+                                Shaowei Cui<sup>7</sup>,</span>   
+                            <span class="author-block">
+                                Bin Fang<sup>8</sup>,</span> 
+                            <span class="author-block">
+                                Guocai Yao<sup>4,9</sup>,</span>    
+                            <span class="author-block">
                                 Di Hu<sup>1,2,3</sup>
                             </span>
                         </div>
@@ -200,13 +210,23 @@
                                     Engineering Research Center of Next-Generation Intelligent Search and
                                     Recommendation, MOE</span>
                                 <span class="author-block"><sup>4</sup>
+                                    Beijing Academy of Artificial Intelligence</span>
+                                <span class="author-block"><sup>5</sup>
+                                    Beijing Jiaotong University</span>
+                                <span class="author-block"><sup>6</sup>
                                     Shanghai Artificial Intelligence Laboratory</span>
+                                <span class="author-block"><sup>7</sup>
+                                    Institute of Automation, Chinese Academy of Sciences</span>
+                                <span class="author-block"><sup>8</sup>
+                                    Beijing University of Posts and Telecommunications</span>
+                                <span class="author-block"><sup>9</sup>
+                                    State Key Laboratory of Multimedia Information Processing, Peking University</span>    
                         </div>
 
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 <span class="link-block">
-                                    <a href="https://arxiv.org/abs/2506.05191" class="external-link button is-normal is-rounded is-dark">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="ai ai-arxiv"></i>
                                         </span>
@@ -215,12 +235,30 @@
                                 </span>
                                 <!-- Code Link. -->
                                 <span class="link-block">
-                                    <a href="https://github.com/GeWu-Lab/MokA"
+                                    <a href="https://github.com/GeWu-Lab/AnyTouch2"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-github"></i>
                                         </span>
                                         <span>Code</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href=""
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa fa-database main-icon"></i>
+                                        </span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href=""
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa fa-dice-d6"></i>
+                                        </span>
+                                        <span>Checkpoint</span>
                                     </a>
                                 </span>
                             </div>
@@ -242,10 +280,13 @@
                 </div>
 
                     <p>
-                        Advances in high-resolution optical tactile sensors are ushering robotics into an era of <b>dynamic tactile perception</b>, 
-                        enabling robots to capture temporal variations in contact, force, and material interaction for increasingly complex real-world tasks.
-                        However, existing tactile datasets and models remain largely limited to static object-level properties, overlooking the rich temporal dynamics of touch.
-                        <b style="color: rgb(197, 90, 17);">We want to change that.</b>
+                        The rise of high-resolution optical tactile sensors are ushering robotics into an era of <b>dynamic tactile perception</b>, 
+                        where robots can sense the temporal variations in contact, force, and material interaction for increasingly complex real-world tasks.
+                        In stark contrast, existing tactile datasets and models are fundamentally unable to support this revolution.
+                        They remain limited to static, object-level properties, leaving the rich temporal dynamics of touch largely unexplored.
+                        <b style="color: rgb(197, 90, 17);">Today, we want to bridge this gap.</b> We need an entirely new <b style="color: rgb(197, 90, 17);">dynamic data ecosystem</b> with 
+                        corresponding <b style="color: rgb(197, 90, 17);">datasets</b>, along with a <b style="color: rgb(197, 90, 17);">general-purpose model</b> that can 
+                        comprehensively cover tactile perception abilities—especially dynamic tactile perception.
                     </p>
                 </div>
             </div>
@@ -270,70 +311,142 @@
     <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body">
-                <h2 class="title is-3 has-text-centered">Comparison and Results</h2>
+                <h2 class="title is-3 has-text-centered">Tactile Dynamic Pyramid</h2>
 
-                                <h2 class="title is-4">Difference between other LoRAs and MokA </h2>
                 <div class="content has-text-justified">
                 <p>
-                    Most former LoRA methods ignore the modality characteristics and directly apply the same low-rank decomposition matrices to all modalities. To better support multimodal adaptation, we argue that both unimodal and cross-modal updates should be considered during fine-tuning. 
+                    To establish a systematic paradigm for dynamic tactile perception, introduce a tactile 
+                    dynamic pyramid that organizes tactile data into five tiers based on the complexity level 
+                    of the perception capabilities they support:
                 </p>
-                <p>
-                    Therefore, MokA retains the widely adopted low-rank decomposition matrices, but it redefines the roles of matrices $A$ and $B$ to better accommodate multimodal characteristics. Modality-specific matrix $A$, cross-attention, and shared multimodal matrix $B$ jointly ensure both unimodal and cross-modal adaptation.
-                </p>
+                <ul>
+                        <li><b>Tier 5 (Press-Only):</b> This tier of data is collected by <b> only pressing the sensor against
+                        objects </b> using either handheld operation or a robot arm. It mainly supports the recognition of 
+                        object-level attribute. (Touch and Go, ObjectFolder, VisGel, TVL, etc.)</li>
+                        <li><b>Tier 4 (Press-Only):</b> This tier of data is collected by <b> pressing the sensor against
+                        objects, followed by random sliding and rotation </b>. It enables perception of surface-related dynamics 
+                        but lacking task relevance. (YCB-Slide, TacQuad, etc.)</li>
+                        <li><b>Tier 3 (Specific Action):</b> This tier of data is collected by <b> controlling
+                        the sensor to press and slide along the object surface </b>following specific predefined actions. 
+                        It can facilitate action-level tactile understanding.</li>
+                        <li><b>Tier 2 (Manipulation Data):</b> This tier of data is collected during <b> real object manipulation tasks </b>
+                        using a robot arm or a UMI device. It is  essential for learning real-world manipulation skills</li>
+                        <li><b>Tier 1 (Force Data):</b> This tier of data is collected by <b> a robot arm equipped with a force
+                        sensor.</b> It enables reasoning about force–deformation relationships and supporting fine-grained, 
+                        force-sensitive manipulation tasks. (e.g. FeelAnyForce)</li>
+                    </ul>
+                Most existing tactile datasets reside in Tier 4 and 5, offering insufficient support for advanced dynamic perception tasks such as dexterous manipulation, while <b>higher-tier
+                data</b> remain scarce.
 
-            </div>
-
-
-                <img src='asset/comparison.svg'
-                    style="margin-top: 5px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"
-                    width="100%">
-                <div class="content has-text-justified">
-                </div>
-
-
-
-                <h2 class="title is-4">Comparision under audio-visual-text scenario </h2>
-                <img src='asset/avl.jpg'
-                    style="margin-top: 5px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"
-                    width="70%">
-                <div class="content has-text-justified">
-                </div>
-
-                <h2 class="title is-4">Comparision under visual-text scenario </h2>
-                <img src='asset/vl.jpg'
-                    style="margin-top: 5px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"
-                    width="70%">
-                <div class="content has-text-justified">
-                </div>
-
-                <h2 class="title is-4">Comparision under speech-text scenario </h2>
-                <img src='asset/al.jpg'
-                    style="margin-top: 5px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"
-                    width="70%">
-
-
-                <h2 class="title is-4">Different variants of MokA </h2>
-                <div class="content has-text-justified">
-                <p>
-                    In the original MokA, cross-attention is employed to explicitly strengthen the interaction between text and non-text tokens, thereby facilitating improved cross-modal adaptation. As previously discussed, alternative modules that similarly enhance this interaction can also be considered. In this section, we explore several variants of the cross-modal interaction module.
-                </p>
-                <p>
-                The cross-attention* variant also adopts a cross-attention mechanism; however, it uses text tokens as queries. Consequently, the updated text tokens integrate information from the relevant non-text tokens—reversing the direction of interaction compared to the original MokA. The naive interaction variant performs a simple, uniform mapping from text tokens to non-text tokens without employing any attention mechanism.
-            </p>
-                <p>
-                Results show that all proposed variants outperform the LoRA baseline, demonstrating that the core idea of explicitly reinforcing cross-modal interactions is beneficial, and the effectiveness is not restricted to one specific module design.
-            </p>
-            </div>
-
-
-                <img src='asset/variants.jpg'
-                    style="margin-top: 5px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"
-                    width="70%">
-                <div class="content has-text-justified">
-                </div>
 
             </div>
         </div>
+
+
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <h2 class="title is-3 has-text-centered">ToucHD: Tactile Hierarchical Dynamic Dataset</h2>
+
+                <div class="content has-text-justified">
+                <p>
+                    To address this gap, we present <b>ToucHD</b>, a large-scale tactile dataset with 2,426,174 contact samples
+                designed as a Tactile Hierarchical Dynamic resource to enrich higher-tier dynamic tactile data.
+                <b style="color: rgb(197, 90, 17);">Compared with existing tactile datasets,
+                ToucHD has advantages in terms of scale, sensor diversity, label diversity, and dynamic diversity.</b>
+                The dataset comprises three subsets corresponding to the highest 3 tiers of the pyramid:
+                </p>
+                <ul>
+                        <li><b>Simulated Atomic Action Data (Sim).</b> We collect 1,118,896 multi-sensor contact frames from five optical tactile sensors 
+                            performing 6 atomic actions—sliding left/right/up/down and rotating clockwise/counterclockwise on 1,043 3D objects.</li>
+                        <!-- <img src="asset/sim.png" alt="Simulated Atomic Action Data" width="100%" height="100%"> -->
+                        <li><b>Real-World Manipulation Data (Mani).</b> We modify FastUMI by equipping its two grippers with different tactile sensors and 
+                        collect 584,842 contact frames from 46 carefully designed manipulation tasks, while simultaneously recording the interaction videos.</li>
+                        <!-- <img src="asset/sim.png" alt="Simulated Atomic Action Data" width="100%" height="100%"> -->
+                         <li><b>Touch-Force Paired Data (Force).</b> We collect 722,436 touch–force pairs using five carefully selected tactile sensors and 71 distinct indenters.
+                        Under programmatic control, each indenter performs sliding motions in four directions—forward, backward, left, and right—across the sensor
+                        surface, while a wrist-mounted force sensor records 3D contact force sequences. </li>
+                    </ul>
+
+
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <h2 class="title is-3 has-text-centered">AnyTouch 2 Model</h2>
+
+                <div class="content has-text-justified">
+                <img src="asset/model.png" alt="AnyTouch 2 Model" width="80%" height="80%" style="display: block; margin: auto; padding-bottom: 18px;">
+                <p>
+                    Building on this dynamic tactile data ecosystem, we introduce <b>AnyTouch 2</b>, a general tactile representation learning framework with <b>comprehensive multi-level dynamic perception capabilities</b>:
+                </p>
+                <ul>
+                <li>
+                    <p>
+                    <b>Pixel-Level Dynamic Details.</b> We employ video masked autoencoder to reconstruct the masked video frames and the frame differences, enabling the model to capture fine-grained temporal variations essential for dynamic perception.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    <b>Semantic-Level Tactile Features.</b> We employ multi-modal alignment, object matching and cross-sensor matching to capture both static objectlevel and dynamic action-aware semantic features, effectively bridging low-level tactile signals with
+high-level perceptual understanding.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    <b>Dynamic Physical Properties.</b> We introduce the force and delta force prediction task to explicitly model the physical
+properties underlying tactile interactions based on ToucHD. This design enables a comprehensive, physically grounded representation spanning all tiers of the tactile dynamic
+pyramid, supports dexterous manipulation, and <b>allows the model to stand out from prior methods</b>.
+                    </p>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <h2 class="title is-3 has-text-centered">Experiments</h2>
+                <h2 class="title is-4">Online Real-World Manipulation</h2>
+                <div class="content has-text-justified">
+                
+                <p>
+                    We design four challenging real-world manipulation
+                    tasks that explicitly span the tactile dynamic pyramid: Tactile Grasping (Tier 5), Whiteboard Wiping (Tier 4 & 3), 
+                    USB Insertion (Tier 2) and Chip Moving (Tier 1). These tasks
+comprehensively cover all tiers of the dynamic pyramid, from object-level property recognition TO force-sensitive precision manipulation.
+                </p>
+
+                <img src="asset/onlineresult.png" alt="Online" width="80%" height="80%" style="display: block; margin: auto; padding-bottom: 18px;">
+                <p>
+                    AnyTouch 2 achieves the strongest Tier-1 dynamic perception capability, outperforming all baselines across all 4 real-world tasks.
+                    <b>This also marks a successful effort to incorporate UMI device with tactile sensors into model training.</b>
+                </p>
+                
+            </div> 
+                <h2 class="title is-4">Offline Benchmark Evaluation</h2>
+                <div class="content has-text-justified">
+                <img src="asset/result.png" alt="Offline" width="80%" height="80%" style="display: block; margin: auto; padding-bottom: 18px;">
+                <p>
+                    AnyTouch 2 demonstrates superior performance across all tactile perception tasks, covering both object-level static attribute understanding
+                    and physical-level dynamic perception.
+                </p>
+                
+            </div>
+ 
+        </div>
+
+        
     </section>
 
 
@@ -350,10 +463,10 @@
     <footer class="footer">
         <div class="container">
             <div class="content has-text-centered">
-                <a class="icon-link" href="https://arxiv.org/abs/2506.05191">
+                <a class="icon-link" href="https://openreview.net/pdf?id=ndilONnABZ">
                     <i class="fas fa-file-pdf"></i>
                 </a>
-                <a class="icon-link" href="https://github.com/GeWu-Lab/MokA" class="external-link" disabled>
+                <a class="icon-link" href="https://github.com/GeWu-Lab/AnyTouch2" class="external-link" disabled>
                     <i class="fab fa-github"></i>
                 </a>
             </div>
