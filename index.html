@@ -181,21 +181,21 @@
 
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
-                                Ruoxuan Feng<sup>1,2,3,4</sup>,</span>
+                                Ruoxuan Feng<sup>1,2,3</sup>,</span>
                             <span class="author-block">
-                                Yuxuan Zhou<sup>5</sup>,</span>
+                                Yuxuan Zhou<sup>4</sup>,</span>
                             <span class="author-block">
-                                Siyu Mei<sup>5</sup>,</span>
+                                Siyu Mei<sup>4</sup>,</span>
                             <span class="author-block">
-                                Dongzhan Zhou<sup>6</sup>,</span>
+                                Dongzhan Zhou<sup>5</sup>,</span>
                             <span class="author-block">
-                                Pengwei Wang<sup>4</sup>,</span> 
+                                Pengwei Wang<sup>3</sup>,</span> 
                             <span class="author-block">
-                                Shaowei Cui<sup>7</sup>,</span>   
+                                Shaowei Cui<sup>6</sup>,</span>   
                             <span class="author-block">
-                                Bin Fang<sup>8</sup>,</span> 
+                                Bin Fang<sup>7</sup>,</span> 
                             <span class="author-block">
-                                Guocai Yao<sup>4,9</sup>,</span>    
+                                Guocai Yao<sup>3,8</sup>,</span>    
                             <span class="author-block">
                                 Di Hu<sup>1,2,3</sup>
                             </span>
@@ -207,19 +207,16 @@
                                 <span class="author-block"><sup>2</sup>
                                     Beijing Key Laboratory of Research on Large Models and Intelligent Governance</span>
                                 <span class="author-block"><sup>3</sup>
-                                    Engineering Research Center of Next-Generation Intelligent Search and
-                                    Recommendation, MOE</span>
-                                <span class="author-block"><sup>4</sup>
                                     Beijing Academy of Artificial Intelligence</span>
-                                <span class="author-block"><sup>5</sup>
+                                <span class="author-block"><sup>4</sup>
                                     Beijing Jiaotong University</span>
-                                <span class="author-block"><sup>6</sup>
+                                <span class="author-block"><sup>5</sup>
                                     Shanghai Artificial Intelligence Laboratory</span>
-                                <span class="author-block"><sup>7</sup>
+                                <span class="author-block"><sup>6</sup>
                                     Institute of Automation, Chinese Academy of Sciences</span>
-                                <span class="author-block"><sup>8</sup>
+                                <span class="author-block"><sup>7</sup>
                                     Beijing University of Posts and Telecommunications</span>
-                                <span class="author-block"><sup>9</sup>
+                                <span class="author-block"><sup>8</sup>
                                     State Key Laboratory of Multimedia Information Processing, Peking University</span>    
                         </div>
 
@@ -311,7 +308,7 @@
     <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body">
-                <h2 class="title is-3 has-text-centered">Tactile Dynamic Pyramid</h2>
+                <h2 class="title is-3 has-text-centered">Tactile Dynamic Pyramid & ToucHD Dataset</h2>
 
                 <div class="content has-text-justified">
                 <p>
@@ -320,52 +317,96 @@
                     of the perception capabilities they support:
                 </p>
                 <ul>
-                        <li><b>Tier 5 (Press-Only):</b> This tier of data is collected by <b> only pressing the sensor against
+                        <li><b>Tier 5 (Press-Only):</b> Collected by <b> only pressing the sensor against
                         objects </b> using either handheld operation or a robot arm. It mainly supports the recognition of 
                         object-level attribute. (Touch and Go, ObjectFolder, VisGel, TVL, etc.)</li>
-                        <li><b>Tier 4 (Press-Only):</b> This tier of data is collected by <b> pressing the sensor against
+                        <li><b>Tier 4 (Press-Only):</b> Collected by <b> pressing the sensor against
                         objects, followed by random sliding and rotation </b>. It enables perception of surface-related dynamics 
                         but lacking task relevance. (YCB-Slide, TacQuad, etc.)</li>
-                        <li><b>Tier 3 (Specific Action):</b> This tier of data is collected by <b> controlling
+                        <li><b>Tier 3 (Specific Action):</b> Collected by <b> controlling
                         the sensor to press and slide along the object surface </b>following specific predefined actions. 
                         It can facilitate action-level tactile understanding.</li>
-                        <li><b>Tier 2 (Manipulation Data):</b> This tier of data is collected during <b> real object manipulation tasks </b>
+                        <li><b>Tier 2 (Manipulation Data):</b> Collected during <b> real object manipulation tasks </b>
                         using a robot arm or a UMI device. It is  essential for learning real-world manipulation skills</li>
-                        <li><b>Tier 1 (Force Data):</b> This tier of data is collected by <b> a robot arm equipped with a force
+                        <li><b>Tier 1 (Force Data):</b> Collected by <b> a robot arm equipped with a force
                         sensor.</b> It enables reasoning about force–deformation relationships and supporting fine-grained, 
                         force-sensitive manipulation tasks. (e.g. FeelAnyForce)</li>
                     </ul>
                 Most existing tactile datasets reside in Tier 4 and 5, offering insufficient support for advanced dynamic perception tasks such as dexterous manipulation, while <b>higher-tier
-                data</b> remain scarce.
-
-
-            </div>
-        </div>
-
-
-    </section>
-
-    <section class="hero teaser">
-        <div class="container is-max-desktop">
-            <div class="hero-body">
-                <h2 class="title is-3 has-text-centered">ToucHD: Tactile Hierarchical Dynamic Dataset</h2>
-
-                <div class="content has-text-justified">
-                <p>
-                    To address this gap, we present <b>ToucHD</b>, a large-scale tactile dataset with 2,426,174 contact samples
+                data</b> remain scarce. To address this gap, we present <b>ToucHD</b>, a large-scale tactile dataset with 2,426,174 contact samples
                 designed as a Tactile Hierarchical Dynamic resource to enrich higher-tier dynamic tactile data.
                 <b style="color: rgb(197, 90, 17);">Compared with existing tactile datasets,
                 ToucHD has advantages in terms of scale, sensor diversity, label diversity, and dynamic diversity.</b>
                 The dataset comprises three subsets corresponding to the highest 3 tiers of the pyramid:
-                </p>
                 <ul>
+                    <div class="container is-max-desktop" style="padding-bottom: 12px;">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <div class="card">
+                                <video poster="" id="pour" autoplay controls muted loop playsinline height="100%" style="margin-bottom: -6.9px;">
+                                    <source src="./asset/sim-rotate.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <video poster="" id="peg" autoplay controls muted loop playsinline style="margin-bottom: -6.9px;">
+                                    <source src="./asset/sim-move.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         <li><b>Simulated Atomic Action Data (Sim).</b> We collect 1,118,896 multi-sensor contact frames from five optical tactile sensors 
                             performing 6 atomic actions—sliding left/right/up/down and rotating clockwise/counterclockwise on 1,043 3D objects.</li>
                         <!-- <img src="asset/sim.png" alt="Simulated Atomic Action Data" width="100%" height="100%"> -->
+                        
+                        <div class="container is-max-desktop" style="padding-bottom: 12px; padding-top: 30px;">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <div class="card">
+                                <video poster="" id="pour" autoplay controls muted loop playsinline height="100%" style="margin-bottom: -6.9px;">
+                                    <source src="./asset/umi-1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <video poster="" id="peg" autoplay controls muted loop playsinline style="margin-bottom: -6.9px;">
+                                    <source src="./asset/umi-2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        
                         <li><b>Real-World Manipulation Data (Mani).</b> We modify FastUMI by equipping its two grippers with different tactile sensors and 
                         collect 584,842 contact frames from 46 carefully designed manipulation tasks, while simultaneously recording the interaction videos.</li>
                         <!-- <img src="asset/sim.png" alt="Simulated Atomic Action Data" width="100%" height="100%"> -->
-                         <li><b>Touch-Force Paired Data (Force).</b> We collect 722,436 touch–force pairs using five carefully selected tactile sensors and 71 distinct indenters.
+                         
+                        <div class="container is-max-desktop" style="padding-bottom: 12px; padding-top: 30px;">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <div class="card">
+                                <video poster="" id="pour" autoplay controls muted loop playsinline height="100%" style="margin-bottom: -6.9px;">
+                                    <source src="./asset/force-1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <video poster="" id="peg" autoplay controls muted loop playsinline style="margin-bottom: -6.9px;">
+                                    <source src="./asset/force-2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        
+                        <li><b>Touch-Force Paired Data (Force).</b> We collect 722,436 touch–force pairs using five carefully selected tactile sensors and 71 distinct indenters.
                         Under programmatic control, each indenter performs sliding motions in four directions—forward, backward, left, and right—across the sensor
                         surface, while a wrist-mounted force sensor records 3D contact force sequences. </li>
                     </ul>
@@ -374,8 +415,9 @@
             </div>
         </div>
 
-        
+
     </section>
+
 
     <section class="hero teaser">
         <div class="container is-max-desktop">
@@ -452,12 +494,7 @@ comprehensively cover all tiers of the dynamic pyramid, from object-level proper
 
 <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>@article{wei2025moka,
-  title={MokA: Multimodal Low-Rank Adaptation for MLLMs},
-  author={Wei, Yake and Miao, Yu and Zhou, Dongzhan and Hu, Di},
-  journal={arXiv preprint arXiv:2506.05191},
-  year={2025}
-}</code></pre>
+        <pre><code>Coming Soon</code></pre>
     </div>
 
     <footer class="footer">
