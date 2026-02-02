@@ -10,7 +10,7 @@ CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --master_port=21634
     --dataset material \
     --num_workers 24 \
     --model_size base \
-    --load_path /home/yaoguocai/code-frx/tactile/output_videomae_9.6_align_match_diff/checkpoint-4frames.pth \
+    --load_path checkpoints/checkpoint-4frames.pth \
     --num_frames 4 \
     --stride 2 \
     --model anytouch

@@ -98,7 +98,7 @@ def main(args):
     )
 
     if args.model_size == 'base':
-        config = AutoConfig.from_pretrained('/home/yaoguocai/code-frx/CLIP-B-16/config.json')
+        config = AutoConfig.from_pretrained('CLIP-B-16/config.json')
     else:
         raise NotImplementedError
     print(args)
