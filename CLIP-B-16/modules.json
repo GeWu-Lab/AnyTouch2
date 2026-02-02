@@ -1,0 +1,8 @@
+[
+  {
+    "idx": 0,
+    "name": "0",
+    "path": ".",
+    "type": "sentence_transformers.models.CLIPModel"
+  }
+]
