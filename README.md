@@ -1,4 +1,3 @@
-# AnyTouch2
 <h3 align="center"> (ICLR 2026) <a href="https://gewu-lab.github.io/AnyTouch2/" style="color:#9C276A">
 AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile Perception</a></h3>
 
