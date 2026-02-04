@@ -13,4 +13,72 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
 
 
+## 📑To Do
+
+- [ ] Quick Start Demo Code
+- [ ] Dataset Pre-processing
+- [ ] Sparsh Evaluation Code
+
+
+
+## 🛠️ Requirements and Installation
+
+1. Create Environment
+
+   ```
+   conda create -n anytouch2 python=3.9
+   conda activate anytouch2
+   ```
+
+2. Install PyTorch 2.4.0 + Cuda 12.4
+
+   ```
+   pip install torch==2.4.0 torchvision==0.19.0 --index-url https://download.pytorch.org/whl/cu124
+   ```
+
+3. Install other required packages:
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+   
+
+## 🚀 Quick Start
+
+1. Download AnyTouch 2 Model Checkpoints into `checkpoints/` **(Complete the [form](https://huggingface.co/xxuan01/AnyTouch2-Model) to get access first)**
+
+   ```
+   huggingface-cli download --repo-type model xxuan01/AnyTouch2-Model --local-dir checkpoints
+   ```
+
+2. Run `quick_start.sh` (Coming Soon)
+
+
+
+## 🤖 Downstream Evaluation
+
+1. Download [ToucHD (Force)](https://huggingface.co/datasets/BAAI/ToucHD-Force) **(Complete the [form](https://huggingface.co/datasets/BAAI/ToucHD-Force) to get access first)**, [Touch and Go](https://github.com/fredfyyang/Touch-and-Go/tree/main/Visuo-tactile%20contrastive%20learning) an [Cloth](http://data.csail.mit.edu/active_clothing/Data_ICRA18.tar) into `datasets/`
+
+   ```
+   ### Download ToucHD (Force). Please complete the form to get access first.
+   huggingface-cli download --repo-type dataset xxuan01/BAAI/ToucHD-Force --local-dir datasets
+   ```
+
+2. Pre-process the datasets (Coming Soon)
+
+3. Run scripts to start downstream training and evaluation
+
+   ```
+   ./run_probe_tag.sh
+   ./run_probe_cloth.sh
+   ./run_probe_touchd.sh
+   ```
+
+   
+
+
+
+
+
 # Coming Soon!
