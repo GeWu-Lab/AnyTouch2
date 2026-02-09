@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --master_port=11634 --nproc_per_node=1 main_objbench.py --distributed --accum_iter 1 \
+CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --master_port=11634 --nproc_per_node=1 train/main_objbench.py --distributed --accum_iter 1 \
     --batch_size 64 \
     --epochs 50 \
     --weight_decay 0.05 \

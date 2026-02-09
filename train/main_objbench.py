@@ -1,7 +1,7 @@
-import os
+import os,sys
+sys.path.append(os.getcwd())
 import torch
 from transformers import AutoConfig
-from transformers.models.vit.configuration_vit import ViTConfig
 from model.linear_probe import TactileProbeVideo
 from config_probe import parse_args
 import random

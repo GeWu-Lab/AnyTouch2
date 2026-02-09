@@ -15,7 +15,7 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
 ## 📑To Do
 
-- [ ] Quick Start Demo Code
+- [x] Quick Start Demo Code
 - [ ] Dataset Pre-processing
 - [ ] Sparsh Evaluation Code
 
@@ -39,9 +39,11 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 3. Install other required packages:
 
    ```
+   git clone https://github.com/GeWu-Lab/AnyTouch2.git
+   cd AnyTouch2
    pip install -r requirements.txt
    ```
-
+   
    
 
 ## 🚀 Quick Start
@@ -53,6 +55,12 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
    ```
 
 2. Run `quick_start.sh` (Coming Soon)
+
+   ```
+   bash scripts/quick_start.sh
+   ```
+
+   
 
 
 
@@ -70,9 +78,9 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 3. Run scripts to start downstream training and evaluation
 
    ```
-   ./run_probe_tag.sh
-   ./run_probe_cloth.sh
-   ./run_probe_touchd.sh
+   bash scripts/run_probe_tag.sh
+   bash scripts/run_probe_cloth.sh
+   bash scripts/run_probe_touchd.sh
    ```
 
    

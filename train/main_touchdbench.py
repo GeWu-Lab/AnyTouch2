@@ -1,4 +1,5 @@
-import os
+import os,sys
+sys.path.append(os.getcwd())
 import torch
 from transformers import AutoConfig
 from model.linear_probe import TactileProbeVideo
