@@ -42,7 +42,7 @@ def load_data(args):
     data_path = 'example_data/'
     bg_img = to_tensor(Image.open(data_path + 'bg.png').convert('RGB')).unsqueeze(0)  # 1, C, H, W
     img_list = []
-    start_idx = 118
+    start_idx = 0
     for i in range(start_idx, start_idx + args.num_frames * args.stride, args.stride):
         img_list.append(to_tensor(Image.open(data_path + str(i) + '.png').convert('RGB')))
     img_list = torch.stack(img_list, dim=0)  # T, C, H, W
