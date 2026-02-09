@@ -57,10 +57,10 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
    Checkpoint Performance:
 
-   | num_frames | stride | Object Bench | Sparsh Bench | ToucHD Bench |
-   | :--------: | ------ | ------------ | ------------ | ------------ |
-   |     4      | 2      |              |              |              |
-   |     2      | 4      |              |              |              |
+   | num_frames | stride |  TAG  | Cloth |                     Slip                     |         Force (Sparsh)         |         Force (ToucHD)          |
+   | :--------: | :----: | :---: | :---: | :------------------------------------------: | :----------------------------: | :-----------------------------: |
+   |     4      |   2    | 76.97 | 42.31 | 86.66 / 87.80 (DG)<br />97.96 / 80.83 (Mini) | 624.26 (DG)<br />202.14 (Mini) | 894.32 (DG)<br />1051.03 (Mini) |
+   |     2      |   4    | 74.15 | 40.76 |                                              |                                |                                 |
 
    
 
