@@ -57,12 +57,12 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
    Checkpoint Performance:
 
-   | num_frames | stride |  TAG  | Cloth |                     Slip                     |         Force (Sparsh)         |         Force (ToucHD)          |
-   | :--------: | :----: | :---: | :---: | :------------------------------------------: | :----------------------------: | :-----------------------------: |
-   |     4      |   2    | 76.97 | 42.31 | 86.66 / 87.80 (DG)<br />97.96 / 80.83 (Mini) | 624.26 (DG)<br />202.14 (Mini) | 894.32 (DG)<br />1051.03 (Mini) |
-   |     2      |   4    | 74.15 | 40.76 |                                              |                                |                                 |
+   | num_frames | stride |    TAG    |   Cloth   |               Slip / Delta Force (Sparsh)                |             Force (Sparsh)             |             Force (ToucHD)              |
+   | :--------: | :----: | :-------: | :-------: | :------------------------------------------------------: | :------------------------------------: | :-------------------------------------: |
+   |     4      |   2    | **76.97** | **42.31** | **86.66** / 87.80 (DG)<br />**97.96** / **80.83** (Mini) | **624.26** (DG)<br />**202.14** (Mini) | **894.32** (DG)<br />**1051.03** (Mini) |
+   |     2      |   6    |   74.15   |   40.76   |     86.60 / **83.15** (DG)<br />97.85 / 89.21 (Mini)     |     643.91 (DG)<br />208.41 (Mini)     |    1076.33 (DG)<br />1311.27 (Mini)     |
 
-   
+   TAG, Cloth: Acc (↑)       Slip: F1 Score (↑)      Force, Delta Force: RMSE (↓)
 
 2. Run `quick_start.sh` (Coming Soon)
 
