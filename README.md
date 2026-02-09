@@ -1,5 +1,6 @@
-<h3 align="center"> (ICLR 2026) <a href="https://gewu-lab.github.io/AnyTouch2/" style="color:#9C276A">
-AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile Perception</a></h3>
+<h1 align="center"> (ICLR 2026) <a href="https://gewu-lab.github.io/AnyTouch2/" style="color:#9C276A">
+AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile Perception</a></h1>
+
 
 
 <h5 align="center"> 🚀 Welcome to the repo of AnyTouch 2! If our project helps you, please give us a star ⭐ on GitHub to support us. 🙏 </h5>
@@ -53,6 +54,15 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
    ```
    huggingface-cli download --repo-type model xxuan01/AnyTouch2-Model --local-dir checkpoints
    ```
+
+   Checkpoint Performance:
+
+   | num_frames | stride | Object Bench | Sparsh Bench | ToucHD Bench |
+   | :--------: | ------ | ------------ | ------------ | ------------ |
+   |     4      | 2      |              |              |              |
+   |     2      | 4      |              |              |              |
+
+   
 
 2. Run `quick_start.sh` (Coming Soon)
 
