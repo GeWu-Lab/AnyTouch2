@@ -17,8 +17,8 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 ## 📑To Do
 
 - [x] Quick Start Demo Code
-- [ ] Dataset Pre-processing
-- [ ] Sparsh Evaluation Code
+- [ ] Dataset Pre-processing (After Chinese New Year)
+- [ ] Sparsh Evaluation Code (After Chinese New Year)
 
 
 
