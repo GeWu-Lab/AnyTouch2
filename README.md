@@ -17,8 +17,8 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 ## 📑To Do
 
 - [x] Quick Start Demo Code
-- [ ] Dataset Pre-processing (After Chinese New Year)
-- [ ] Sparsh Evaluation Code (After Chinese New Year)
+- [x] Dataset Pre-processing
+- [ ] Sparsh Evaluation Code
 
 
 
@@ -82,7 +82,14 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
    huggingface-cli download --repo-type dataset xxuan01/BAAI/ToucHD-Force --local-dir datasets
    ```
 
-2. Pre-process the datasets (Coming Soon)
+2. Pre-process the datasets
+
+   ```sh
+   cd datasets/ToucHD-Force
+   for f in *.zip; do
+     unzip "$f" -d "${f%.zip}"
+   done
+   ```
 
 3. Run scripts to start downstream training and evaluation
 
@@ -92,9 +99,18 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
    bash scripts/run_probe_touchd.sh
    ```
 
-   
 
 
+
+## 📑 Citation
+
+```
+@inproceedings{fenganytouch2,
+  title={AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile Perception},
+  author={Feng, Ruoxuan and Zhou, Yuxuan and Mei, Siyu and Zhou, Dongzhan and Wang, Pengwei and Cui, Shaowei and Fang, Bin and Yao, Guocai and Hu, Di},
+  booktitle={The Fourteenth International Conference on Learning Representations}
+}
+```
 
 
 
