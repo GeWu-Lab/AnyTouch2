@@ -20,6 +20,19 @@ import copy
 import util.misc as misc
 from util.misc import NativeScalerWithGradNormCount as NativeScaler
 
+def load_from_eval_checkpoint(ckpt, model):
+    new_ckpt = {}
+    for key,item in ckpt.items():
+        if 'head' in key:
+            new_ckpt[key] = copy.deepcopy(item)
+
+    for k,v in model.named_parameters():
+        if k not in new_ckpt.keys():
+            new_ckpt[k] = v
+    
+    model.load_state_dict(new_ckpt, strict=True)
+
+    return model
 
 def load_model_from_multi_clip(ckpt, model):
 
@@ -112,6 +125,13 @@ def main(args):
         model = load_model_from_multi_clip(ckpt, model)
         
         print(load_dir)
+    
+    if args.resume_downstream:
+        load_dir = args.resume_downstream
+        ckpt = torch.load(load_dir, map_location='cpu')
+        model = load_from_eval_checkpoint(ckpt, model)
+        
+        print('Resume from downstream checkpoint: {}'.format(load_dir))
     
     model.to(device)
 

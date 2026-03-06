@@ -56,6 +56,8 @@ def parse_args():
                         help='')
     parser.add_argument('--resume', default='',
                         help='resume from checkpoint')
+    parser.add_argument('--resume_downstream', default='',
+                        help='resume from downstream checkpoint')
     parser.add_argument('--start_epoch', default=0, type=int, metavar='N',
                         help='start epoch')
     parser.add_argument("--use_universal", action='store_true', help="")
