@@ -8,7 +8,7 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 <h5 align="center">
 
 
-[![ArXiv](https://img.shields.io/badge/ICLR-<OpenReview>-<COLOR>.svg)](https://openreview.net/pdf?id=ndilONnABZ) [![hf_checkpoint](https://img.shields.io/badge/🤗-AnyTouch_2_Model-9C276A.svg)](https://huggingface.co/xxuan01/AnyTouch2-Model) [![hf_data](https://img.shields.io/badge/🤗-ToucHD_dataset-9C276A.svg)](https://huggingface.co/collections/BAAI/touchd) [![arXiv](https://img.shields.io/badge/Arxiv-2602.09617-AD1C18.svg?logo=arXiv)](https://arxiv.org/abs/2602.09617) [![Webpage](https://img.shields.io/badge/Webpage-AnyTouch_2-<COLOR>.svg)](https://gewu-lab.github.io/AnyTouch2/) <br>
+[![arXiv](https://img.shields.io/badge/ICLR-<OpenReview>-<COLOR>.svg)](https://openreview.net/pdf?id=ndilONnABZ) [![hf_checkpoint](https://img.shields.io/badge/🤗-AnyTouch_2_Model-9C276A.svg)](https://huggingface.co/xxuan01/AnyTouch2-Model) [![hf_data](https://img.shields.io/badge/🤗-ToucHD_dataset-9C276A.svg)](https://huggingface.co/collections/BAAI/touchd) [![arXiv](https://img.shields.io/badge/Arxiv-2602.09617-AD1C18.svg?logo=arXiv)](https://arxiv.org/abs/2602.09617) [![Webpage](https://img.shields.io/badge/Webpage-AnyTouch_2-<COLOR>.svg)](https://gewu-lab.github.io/AnyTouch2/) <br>
 
 <img src="https://gewu-lab.github.io/AnyTouch2/asset/second.png" width="800" />
 
