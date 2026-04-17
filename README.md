@@ -108,7 +108,7 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
 ### Sparsh Bench
 
-1. Download [Sparsh datasets](https://huggingface.co/datasets/BAAI/ToucHD-Force) into `datasets/`
+1. Download [Sparsh datasets](https://huggingface.co/collections/facebook/sparsh) into `datasets/`
 
    ```
    huggingface-cli download --repo-type dataset facebook/gelsight-force-estimation --local-dir datasets
