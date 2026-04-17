@@ -1,0 +1,7 @@
+project: tactile_ssl
+entity: gum-rep-learning
+save_dir: ${paths.output_dir}
+id: ${hydra:job.id}_${experiment_name}
+tags: []
+groups: ${experiment_name}
+notes: ~

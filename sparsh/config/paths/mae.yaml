@@ -1,0 +1,8 @@
+data_root: datasets/
+encoder_checkpoint_root: sparsh-mae-base
+log_dir: sparsh/log/
+tacbench_dir: datasets/
+
+output_dir: ${hydra:runtime.output_dir}
+work_dir: ${hydra:runtime.cwd}
+

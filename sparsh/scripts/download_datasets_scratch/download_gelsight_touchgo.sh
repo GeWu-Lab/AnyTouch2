@@ -1,0 +1,155 @@
+
+#!/bin/bash
+
+# set path to the directory to donwload the dataset
+path_dataset="/media/chiguera/GUM/datasets/gelsight/touch_go/"
+
+echo "Downloading the backbone dataset for gelsight..."
+cd $path_dataset
+
+gdown  https://drive.google.com/drive/folders/1ucBetFxg1ACFozXiC5eNSS9c4_Rl8Aw9?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1VoP6b3YXfNdAtG9COTFg5YjI_mBB9vm6?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1E2t7nqtSF0z08igvTkvadRVnZbBGD4tQ?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1faA8D6iIq5NPs6BNbj0gwbtewlC1WwYf?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1Te-3LGGTuaSqwhnX8Kxr73eY-6EJANYV?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1LYeIlQYh7sYZll-_tZKKOPWczAsNEU7a?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1-llfa8-9rjn3-ZPtl_o3CoVC4WfSfcHC?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1-5sYMSNuEFR6IwEt9y5pebWbVH3z2Dcq?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1NYhmtK7OJmajOZaHGxAvlqfiykYvRd90?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1IjZvFhPSA83qA64EuS0EN7KWDNinfJdl?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1cWqUZH7A7RVC-YxLGp7GQLI6GZm1nwsS?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1u2514VNDxwwExUvxIHfWmZ7RaVDSDCtQ?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1y0PCwVn3cR5mBHoee0J7UCd6Vbt9Svfm?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1mZFnwNDZ7zoVMpEn96jtbLKdTVmxwsoW?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1mjhJZI-DD4DeUG-5x7kCzgteTZmILf5W?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1avYcdOknUQQtNyxA4VwBK45JAHXJpXT6?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1u0Axqtp0uiC3NHfvQjJ_Wlnc3dwhX5rN?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1KE8tJj4egckIncmyK_2pRiutUeYDuSz5?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1-IbQanQfK6QuasPXxDu4hnbUAdiM2nHt?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1O1P-td1l9bgFFhffIITbZkJq8R0Jhh7z?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1EJCH45enLaZ3zkU3QMF_6YRnxcfL2Rsj?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1O5iTM3yCeN7sBSRW98eRfXLEJGSvUDZk?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1hrFmQn1KSy_C9t8Yhru_U7thR4ByFaJe?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1prSa8FuXZtWhdE9FQTYw-kiXXiFql3yO?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1QZF6GvzstJvTd-Zp8_VLdUJcWIrJ5UjS?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1EO0OujJOi0nXBgLIbDPKh9IpH66HMaFt?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1bhJCNB0QoDSJk7vEK2qT0F_Yk5hTMhcI?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1Njr_ywgi_CX0WoHE9IBhoxQRnERae0MB?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1hv99qW9XzjT-WRswZsBOvSRAXi81L-EA?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1a2j1BvnOwjkEOC8oxSv-yzGOcZQ4hr-x?usp=sharing --folder
+
+gdown  https://drive.google.com/drive/folders/13L7CSpfZLbeHkWYeS_nQ98XHxJmz74mB?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1Rbumy1J0uZGS4NjzqD7M-_FOa3mP0tly?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1OPHAYLTdnw8MGFmZ2cf42Tb5b9-wG7Jb?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/19NWBF_6wQFcJCHc6vNXtsTgJEINdlQdm?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1haVWnzmvMrvw3Z1ZLL9nQJhHOWOHb03c?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1Juq4zi5J0FnB2tO77-Cvngf_kvlzHyDa?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/16U_DiOMKGY4YinGi990KDUI-nbaf5sSb?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1RLwwXVHnWwEqryA61l8VyndGUwZAMVRX?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1cZxVNbcS0klHJFLN2SY-2pmMHtME0R87?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/10NIRfsL2lXaXDfx5V8fxKzIzr7Sn0ygf?usp=sharing --folder
+
+gdown  https://drive.google.com/drive/folders/188vHFrXCDCwbytqqmeXRDxgy74ixnQVL?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1EfA2CAZi2AJiaDOdGHWNTcjmt29alDyT?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/10IE5krZxLwPBEAhcaceTbjma3VDpSFvh?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1pO_Q9eLS4h7ozDLlAxdnP3KbnK7e42r8?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1OA7ZRh_IBDhzuEoNh3fR_n_bCeVN6OpD?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1qqmT5g2blcNU5yS1m3-LRHYaBEWfyGdk?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1A-GQ3UTMp0RFFvpITuxI6Yeut_zqOoz7?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1HMtXBxHFxCLUd4ji-hcKTmwtgYNWu5Z1?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1KE6ucUuuPcCRFmwDOs4PFaiLLSzLfHQL?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/16srM74burQvzhcRIaxI1VI5EMsYqPyqt?usp=sharing --folder
+
+gdown  https://drive.google.com/drive/folders/1pJRBShUxj4hmzRcvYGq4pdT4je4jRlga?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1q2VS5h9em3vz0r5kQgzyACnAvGayrxNk?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1k-hNMScp_ZpxN1wbsNwugrGWO2lCZr9q?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1-IstE9CXPemWuYEJeWOXlQjcISdUdGn4?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1WqI2L2C31zGBLK_-aO8IusV1vhxUcsdN?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1D0oH_shdIxY1c_pXIvTr8Bn7A1T2Z4rS?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1PY93LzMByEb7bkfHW7VebhZ6KMoFNrOn?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1JZqYPOruw1Vz4j8VYkWv7mmpzOc_V2uO?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1m-4pY77rMsNWdgkyjqqoSIY_HZvqbz-g?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/14ezmTWbyx6GLGDcjO4L0NvNRhKGW2JR-?usp=sharing --folder
+
+gdown  https://drive.google.com/drive/folders/1S8_XimNlPgZsSWtMppJa4lnqqrwsnm9c?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1CYr3-xo4WzHjJJQW9m8MKA67lOLrVQqS?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1UYxNQFAx2RHuCiE0UejtuAlsXcaw92hf?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1d70xNIzwmPYDGFiXzo_RrlQFb62ee-3l?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1HHWhuHq7h-SMBGrYNORgFz698irZWNF3?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1hQS_Uef5M68GcOWR2C384dB8UNr0uS7y?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1cGS25EbXvpHdkDDo0XJgMDgsbE5vAZHi?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1r9tLtFbjJ1xy82s_N1WcqefmNkaRVciO?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1N-8YiUz_fxjI_nxRdD_IJ3Gr6_j-Fm-r?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1JTstQ7GFwE6_9Fkq_62zGH1dEd0Zgbiy?usp=sharing --folder
+
+gdown  https://drive.google.com/drive/folders/1bWGJTxW2sXq_vHALMkGW6NcHD_NSpPVu?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/15rLYuGvRyTBohqR9bbnzPX9W-EcIk90x?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1CpSFJMl1KcvOgCNmLeVFeestzkm8cKtP?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1E_RmlFOc2J1qSShFcrsmI-I86vYzryOY?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1Xnx_sJSwziJOPzYWjZjYfS5i87PYbRUS?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1pgnagd0WCd_7uNB4qHbpN-7beGPGg_Y1?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1icfnLE7NTvL86JU_XvCz5zYBwispRJWF?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1hRUi9AHVDXYqnHtU8L3O4eN9S9Us96XC?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1fwZxw0GDNK-zgURINaNfCCO-A5-5_VkZ?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1_iytA4PB5hRZ93AgNkNXeeWSYKlEU1Cx?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1pNZtpmu3zlBL6hXkdRlEJJ4ZLQ2mcmLb?usp=sharing --folder
+
+gdown  https://drive.google.com/drive/folders/11iEjvrKlFjAyyAqNtrAnFdTc0bRM-Zra?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1OvrXKTDl3zhujC_3Of5LlewJ4dPc_yH_?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/19X5Zftsim3J2HC3Wor3mNJC8NAvNGTAg?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/14i7S8xWvZaCMuLEmHWdG84B4mQ2lTMma?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1TjsxfuytsYsfRwjJbmcDH-1wIGfNkRID?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1zzTBfmWwvdJcxjPRsw2N0Z6fNCRpCTTO?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1PTK5ms7jGk-vZqwn9DPkSAzGXeFIKLLE?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1asSGoaeYTsEWuyijkyp7WwLf7gIaC15q?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1bIdwoH5939OoBqFTab-3x7A2k3_D__3j?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1luIF_F5AmDd5ivwSjjlyHipQzZ4ccgym?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1mWJaEkV7vsMxt_TMDZ1867kPxuw70uWQ?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1G5-bJ9Q-T6FVEG-BVy9sMASrRgNlhRi6?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1bNQF_wRWuh5n4uCKb6klBySFDjevIaF-?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1Rks46WAe8gd1i29JXk1hEWfHNTgdsUj2?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1T7CenenvMvs7fFKify7_10qK6M3dFuyb?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1hsHpldQ6RfiMTu5awHEYsRLEioFlMpsx?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/18FQ4looygvzZW3cU7mTIH4jIoIYy5SR6?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/15ELCkhNXGHFl9Hr2ym57OP5BwVTEc98f?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1X-C9cs1sKGrcKRgZyYQDF5tCNfdlv76J?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/11fXcDXBBp1-4lH3H4Mzj0_bn6veUsc09?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1kgazWPawwYarY8QJAgIem6e1rGb89c7V?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1wlzgPCltdJu-1w8Z6Zz2GP9ef1lfg4TF?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1ciobujO4HmwBKKsUdt2tTzcuKr7T6nHF?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1lz4n41S8JGRqQFd8HkD1pu1T8CNVB72r?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1VP6CNoJ_8NvubwBZOf98V_RTX8k64Ah6?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1hyThMVdahYpeiOx1AiEKeNKSG0s8ZdBU?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1z22ESjEQmSoDJd8kKhHFK-DRM8Km6zNI?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1DNXO6Tmo7mfeeh6-z2SfiStJL423LGoG?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1oibLfezIYKI3dldU7Qzira-YSEnIY8xp?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1WKOXw-8gI2VBvKMAhEtGiyKQROO_VGRj?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1tJz-uCm6j-jzd8tF5fMawOuLr2xxMihy?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1sgJ0jex0r801SDIriwuxWgv6_00ctjln?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1_MYlTlxlE5V6bpQ9U7CUC1AC8We1_n6x?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1KjwiQobvKODeKww4SSAgMILjJuxxC-iB?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1lias-GJUZYKfsCcCL10dR7OYM-Nype6h?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1gZ6WwOJCFo3Web5vLK5mdAQG4arbPqQg?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1zh6RS28d1odtXB8SosJs8AUm20YOiX5f?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1rt6oMrMQwVDkHINnST_s3yt1to7afFUE?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1aozKSt4cHL1IJQYIHM6s8tsUHhoKBT80?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1h4QLQ5i0zTvj9lcAIaIMstE8CnlrudjD?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1V5AjZA_J0FTMz8SnyUvqkzP5CR-UHhnw?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1TwRBIEnT9BpjzBSlIcaHjWQNGU8JmdGt?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1mogcuEiCUlPa5jYSS3ZQx-yIGMIxOugB?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1YqIuyKUKHlQ7u5mY_p-JNnbQZQxdgtZI?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1h8ZeNR-7SUXgGa8kFGszjBoTvwaWneWa?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1yI2q4hZSRQpyRdkmAPjnDWqNtuoBqPHZ?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1JmLG5CSyy--5fzxcD83If2I1hYmLBGCV?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1g7HZWpjv_BJNpREyhYwBYbXIOrZFGHDi?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1bZ1WSqMdsBREX64swXnl_QOk0olfkvps?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/161GMPE7_WKNq7wkJtYO0eElEe81WXxWa?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1950D4qKbn1UzMz4KguLCiwpwmTB73r_g?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1E-iv2RYec323vnTOhiLlyYFK1gU9GZ8E?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1T6gbq5U3seN5iEFSBbuwj97VvoNd7jIf?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1mKrib1pdAa8A816WxwsoyAukKSJkyBAz?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1kuCdqP-Mt8iledz6w0s8st3oPtJSYYOs?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1AwU_P3YDzAqwM_wCgnMQej4FRaU6jBRv?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1KtsFE7eh90HYlLErlH6LZBXtNuXvM95k?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/158UvYTB4-AEc8X4uJMmEeKDKg3KZUgsT?usp=sharing --folder
+gdown  https://drive.google.com/drive/folders/1o9xSR3lLIa9MIggbeJaKSz3QXGSBfklk?usp=sharing --folder

@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~ 
+  - /data: digit_force
+  - /task: t1_force_estimation
+  - _self_
+
+ssl_name: e2e
+sensor: digit
+ckpt_path: ~
+
+trainer:
+  save_probe_weights_only: false
+
+task: 
+  model_encoder:
+    num_register_tokens: 0 
+    
+  checkpoint_encoder: ~
+  train_encoder: true

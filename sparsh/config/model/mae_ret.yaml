@@ -1,0 +1,41 @@
+_target_: sparsh.tactile_ssl.algorithm.ReskinMAEModule
+urdf_path: ${paths.work_dir}/assets/metahand/meta_hand_right_digit.urdf
+encoder:
+  _target_: sparsh.tactile_ssl.model.reskin_transformer.ret_small
+  in_chans: 3
+  sequence_length: ${int_multiply:${data.dataset.config.window_time}, ${data.dataset.config.interpolating_freq}}
+
+mask_type: random #only supports random for now
+mask_ratio: 0.75
+norm_pix_loss: false
+log_freq_reconstruction: 500
+
+decoder:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.reskin_transformer.ret_mae_decoder
+  embed_dim: 512
+  depth: 8
+  num_heads: 16
+
+optim_cfg:
+  _partial_: True
+  _target_: torch.optim.AdamW
+  lr: 5e-4
+  weight_decay: 0.05
+
+lr_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.WarmupCosineScheduler
+  steps_per_epoch: ???
+  T_max: ???
+  final_lr: 1.0e-6
+  start_lr: 1e-5
+  warmup_epochs: 30
+
+wd_scheduler_cfg:
+  ~
+  # _partial_: True
+  # _target_: sparsh.tactile_ssl.model.custom_scheduler.CosineWDSchedule
+  # final_weight_decay: 0.4
+  # ref_weight_decay: 0.04
+  # T_max: ???

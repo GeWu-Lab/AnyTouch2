@@ -1,0 +1,18 @@
+_target_: sparsh.tactile_ssl.downstream_task.ForceFieldModule
+
+model_encoder:
+  _target_: sparsh.tactile_ssl.model.vit_base
+
+model_task:
+  _target_: sparsh.tactile_ssl.downstream_task.ForceFieldDecoder
+
+checkpoint_encoder: ~
+checkpoint_task: ~
+train_encoder: false
+
+optim_cfg:
+  _partial_: True
+  _target_: torch.optim.Adam
+  lr: 0.0001
+
+scheduler_cfg: ~

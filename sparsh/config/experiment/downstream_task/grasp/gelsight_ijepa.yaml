@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~
+  - /data: gelsight_grasp
+  - /task: t4_grasp_stability
+  - _self_
+
+ssl_name: ijepa
+sensor: gelsight
+ckpt_path: ~

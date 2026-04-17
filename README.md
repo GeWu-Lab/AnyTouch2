@@ -18,7 +18,10 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
 - [x] Quick Start Demo Code
 - [x] Dataset Pre-processing
-- [ ] Sparsh Evaluation Code
+- [x] Sparsh Evaluation Code
+- [ ] Real-world Code
+
+**[2026/4/17]** We have updated the Sparsh evaluation code. Please pull the latest changes from the repository using `git pull`.
 
 
 
@@ -75,6 +78,8 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
 
 ## 🤖 Downstream Evaluation
 
+### ToucHD Bench and Object Bench
+
 1. Download [ToucHD (Force)](https://huggingface.co/datasets/BAAI/ToucHD-Force) **(Complete the [form](https://huggingface.co/datasets/BAAI/ToucHD-Force) to get access first)**, [Touch and Go](https://github.com/fredfyyang/Touch-and-Go/tree/main/Visuo-tactile%20contrastive%20learning) an [Cloth](http://data.csail.mit.edu/active_clothing/Data_ICRA18.tar) into `datasets/`
 
    ```
@@ -97,6 +102,26 @@ AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile 
    bash scripts/run_probe_tag.sh
    bash scripts/run_probe_cloth.sh
    bash scripts/run_probe_touchd.sh
+   ```
+
+
+
+### Sparsh Bench
+
+1. Download [Sparsh datasets](https://huggingface.co/datasets/BAAI/ToucHD-Force) into `datasets/`
+
+   ```
+   huggingface-cli download --repo-type dataset facebook/gelsight-force-estimation --local-dir datasets
+   huggingface-cli download --repo-type dataset facebook/digit-force-estimation --local-dir datasets
+   huggingface-cli download --repo-type dataset facebook/digit-pose-estimation --local-dir datasets
+   ```
+
+2. Rename the dataset folders by removing '-estimation' (e.g. gelsight-force-estimation -> gelsight-force)
+
+3. Run scripts to start downstream training and evaluation
+
+   ```
+   bash sparsh/run_task.sh
    ```
 
 

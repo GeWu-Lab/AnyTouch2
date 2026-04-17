@@ -1,0 +1,90 @@
+train_val_split: ~
+train_data_budget: 1.0
+val_data_budget: 1.0
+max_train_data: 100000
+sensor: gelsight
+
+dataset:
+  _target_: sparsh.tactile_ssl.data.vision_based_textile_probes.TextileDataset
+  config:
+    sensor: ${data.sensor}
+    remove_bg: false
+    out_format: "concat_ch_img" # ["video", "concat_ch_img"  "single_image"]
+    num_frames: 2 # num frames in input (for video and concat_ch_img format)
+    frame_stride: 5  # temporal stride between frames in input 
+
+    path_dataset: ${paths.data_root}/tacbench_data/T6_textile/gelsight_marker/
+
+    list_datasets: [
+      train/broadcloth,
+      train/cotton,
+      train/denim,
+      train/fleece,
+      train/hairy,
+      train/leather,
+      train/other,
+      train/polyester,
+      train/suit,
+      train/wool,
+      train/corduroy,
+      train/crepe,
+      train/flannel ,
+      train/garbardine,
+      train/knit,
+      train/net,
+      train/parka,
+      train/satin,
+      train/velvet,  
+      train/woven,
+    ]
+
+    list_datasets_test: [
+      test/broadcloth,
+      test/cotton,
+      test/denim,
+      test/fleece,
+      test/hairy,
+      test/leather,
+      test/other,
+      test/polyester,
+      test/suit,
+      test/wool,
+      test/corduroy,
+      test/crepe,
+      test/flannel ,
+      test/garbardine,
+      test/knit,
+      test/net,
+      test/parka,
+      test/satin,
+      test/velvet,  
+      test/woven,
+    ]
+    
+    look_in_folder: true
+    max_files_per_folder: -1 #-1 for all files
+
+    transforms:
+      resize: [320, 240]
+
+    class_labels: ["cotton", "satin", "polyester", "denim", "garbardine", "broad cloth", "parka", "leather", "crepe", "corduroy", "velvet",
+                  "flannel", "fleece", "hairy", "wool", "knit", "net", "suit", "woven", "other"]
+
+    weights_classes: [0.04,  0.077, 0.032, 0.026, 0.04,  0.086, 0.097, 0.058, 0.032, 
+                    0.023, 0.122, 0.091, 0.017, 0.044, 0.025, 0.057, 0.038, 0.044,
+                    0.029, 0.021]
+
+train_dataloader:
+  batch_size: 100
+  num_workers: 8
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True
+  shuffle: True
+
+val_dataloader:
+  batch_size: 100
+  num_workers: 8
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True

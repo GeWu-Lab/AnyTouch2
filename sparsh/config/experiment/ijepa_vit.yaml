@@ -1,0 +1,38 @@
+# @package _global_
+defaults:
+  - override /paths: ~
+  - override /wandb: ~
+  - override /data: vision_based
+  - override /model: ijepa_vit
+  - _self_
+
+model_size: base
+model_embed_dim: 768
+experiment_name: sparsh_ijepa_vit${model_size}
+ckpt_path: ~
+
+wandb:
+  project: sparsh_ijepa
+  group: ijepa_vit${model_size}
+  tags: ["vit${model_size}"]
+
+trainer:
+  max_epochs: 200
+
+model:
+  encoder:
+    _target_: sparsh.tactile_ssl.model.vit_${model_size}
+    img_size: [320, 240]
+    in_chans: 6
+    pos_embed_fn: sinusoidal
+  predictor:
+    _target_: sparsh.tactile_ssl.model.vit_predictor
+    img_size: [320, 240]
+    input_dim: ${model_embed_dim}
+    embed_dim: 192
+  optim_cfg:
+    lr: 1e-3
+    weight_decay: 0.04
+    fused: True
+  moving_average_decay: [0.996, 1.0]
+  allow_mask_overlap: false

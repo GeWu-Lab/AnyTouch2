@@ -1,0 +1,92 @@
+#@package _global_
+
+task_name: t3_pose
+ssl_model_size: base
+train_data_budget: 1.0
+val_data_budget: 1.0
+experiment_name: ${sensor}_${task_name}_${ssl_name}_vit${ssl_model_size}_${train_data_budget}
+seed: 42
+
+hydra:
+  job:
+    id: ${now:%Y.%m.%d}_${now:%H-%M}
+  run:
+    dir: ${paths.log_dir}/${hydra.job.id}_${experiment_name}
+
+wandb:
+  project: ${task_name}_${sensor}
+  group: ~
+  tags: ["${ssl_name}"]
+
+trainer:
+  max_epochs: 51
+  validation_frequency: 1
+  sanity_validate: true
+  save_checkpoint_dir: ${paths.output_dir}/checkpoints
+  checkpoint_interval_type: 'log'
+  max_task_checkpoints: 10
+  save_probe_weights_only: True
+
+data:
+  train_data_budget: ${train_data_budget}
+  val_data_budget: ${val_data_budget}
+
+test:
+  data:
+    dataset_name: [
+      "test/pringles/bag_00",
+      "test/pringles/bag_01",
+      "test/pringles/bag_02",
+      "test/pringles/bag_03",
+      "test/pringles/bag_04",
+      "test/pringles/bag_05",
+      "test/sugar/bag_00",
+      "test/sugar/bag_01",
+      "test/sugar/bag_02",
+      "test/sugar/bag_03",
+      "test/sugar/bag_04",
+      "test/sugar/bag_05",
+      ]
+    batch_size: 200
+  tester:
+    _partial_: True
+    _target_: sparsh.tactile_ssl.test.TestPoseSL
+  path_outputs: ${paths.tacbench_dir}/${task_name}_${sensor}/
+
+task:
+  _target_: sparsh.tactile_ssl.downstream_task.PoseSLModule
+  checkpoint_task: ~
+
+  model_encoder:
+    _target_: sparsh.tactile_ssl.model.vit_${ssl_model_size}
+    img_size: ${data.dataset.config.transforms.resize}
+    in_chans: 6
+    pos_embed_fn: sinusoidal
+    num_register_tokens: 1
+
+  model_task:
+    _target_: sparsh.tactile_ssl.downstream_task.PoseLinearProbe
+    embed_dim: ${ssl_model_size}
+    num_heads: 12
+    depth: 1
+    num_classes: 11
+    num_input_fingers: 1
+    is_anytouch: false
+
+  checkpoint_encoder: ${paths.encoder_checkpoint_root}/${ssl_name}_vit${ssl_model_size}.ckpt
+  train_encoder: false
+  encoder_type: ${ssl_name}
+
+  weights_classes_tx:  [1.091, 1.038, 1.206, 0.948, 0.824, 1.150, 0.733, 0.902, 1.217, 1.012, 1.170]
+  weights_classes_ty:  [1.297, 0.960, 1.174, 0.925, 0.736, 1.122, 0.78 , 0.94 , 1.171, 0.964, 1.269]
+  weights_classes_yaw: [0.810, 1.000, 1.186, 1.121, 1.118, 1.010, 1.072, 0.939, 1.072, 0.941, 0.864]
+
+  bins_translation: ${data.dataset.config.bins_translation}
+  bins_rotation: ${data.dataset.config.bins_rotation}
+
+  optim_cfg:
+    _partial_: True
+    _target_: torch.optim.Adam
+    lr: 0.0001
+
+  scheduler_cfg: ~

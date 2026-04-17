@@ -1,0 +1,117 @@
+train_dataloader:
+  batch_size: 64
+  num_workers: 8
+  shuffle: True
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True
+
+val_dataloader:
+  batch_size: 64
+  num_workers: 8
+  shuffle: True
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True
+
+remove_bg: true
+
+sensor:
+  - type: digit
+    dataset:
+      _target_: sparsh.tactile_ssl.data.vision_tactile.VisionTactileBackboneDataset
+      config:
+        remove_bg: ${data.remove_bg}
+        out_format: ${data_out_format}
+        num_frames: ${num_frames}
+        frame_stride: ${frame_stride}
+        
+        dataset_ids_train: [0, 1, 2, 3]
+        dataset_ids_val: [4]
+        path_dataset: ${paths.data_root}/datasets/digitv1/Object-Slide/
+        path_bgs: ${paths.data_root}/datasets/digitv1/Object-Slide/bgs/
+        list_datasets:
+          [
+            "004_sugar_box",
+            "025_mug",
+            "048_hammer",
+            "005_tomato_soup_can",
+            "035_power_drill",
+            "055_baseball",
+            "006_mustard_bottle",
+            "037_scissors",
+            "021_bleach_cleanser",
+            "042_adjustable_wrench",
+            "banana",
+            "bread",
+            "cheese",
+            "cookie",
+            "corn",
+            "lettuce",
+            "plum",
+            "strawberry",
+            "tomato",
+          ]
+
+        transforms:
+          with_augmentation: true
+          resize: [320, 240]
+          p_flip: 0.5
+          p_crop: 0.2
+          p_rot: 0.2
+
+  - type: gelsight
+    dataset:
+      _target_: sparsh.tactile_ssl.data.vision_tactile.VisionTactileBackboneDataset
+      config:
+        out_format: ${data_out_format} 
+        num_frames: ${num_frames}
+        frame_stride: ${frame_stride}
+        
+        path_dataset: ${paths.data_root}/datasets/gelsight/
+        list_datasets:
+          [
+            "touch_go",
+            "object_folder",
+          ]
+
+        train_val_split: 0.725
+
+        transforms:
+          with_augmentation: true
+          resize: [320, 240]
+          p_flip: 0.5
+          p_crop: 0.2
+          p_rot: 0.2
+
+  - type: gelsight_mini
+    dataset:
+      _target_: sparsh.tactile_ssl.data.vision_tactile.VisionTactileBackboneDataset
+      config:
+        remove_bg: true
+        out_format: ${data_out_format} 
+        num_frames: ${num_frames}
+        frame_stride: ${frame_stride}
+        
+        dataset_ids_train: [0, 1, 2]
+        dataset_ids_val: [3]
+        path_dataset: ${paths.data_root}/datasets/gelsight/Object-Slide/
+        path_bgs: ${paths.data_root}/datasets/gelsight/Object-Slide/bgs/
+        list_datasets:
+          [
+            "bagel",
+            "banana",
+            "bread",
+            "cookie2",
+            "donut",
+            "icecream_cup",
+            "plum",
+            "strawberry",
+          ]
+
+        transforms:
+          with_augmentation: true
+          resize: [320, 240]
+          p_flip: 0.5
+          p_crop: 0.2
+          p_rot: 0.2

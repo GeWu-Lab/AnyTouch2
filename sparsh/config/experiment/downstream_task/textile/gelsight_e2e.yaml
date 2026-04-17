@@ -1,0 +1,22 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~ 
+  - /data: gelsight_textile
+  - /task: t6_textile_classification
+  - _self_
+
+ssl_name: e2e
+sensor: gelsight
+ckpt_path: ~
+
+trainer:
+  save_probe_weights_only: false
+
+task: 
+  model_encoder:
+    num_register_tokens: 0 
+    
+  checkpoint_encoder: ~
+  train_encoder: true
+  checkpoint_task: /fsx-checkpoints/carohiguera/experiments/33922480_gelsight_t1_force_v2_e2e_vitbase_1.0/checkpoints/epoch-0012.pth

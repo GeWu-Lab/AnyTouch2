@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~
+  - /data: digit_force
+  - /task: t1_force_estimation
+  - _self_
+
+ssl_name: dinov2
+sensor: digit
+ckpt_path: ~

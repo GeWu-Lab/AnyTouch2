@@ -1,0 +1,41 @@
+_target_: sparsh.tactile_ssl.algorithm.MAEModule
+encoder:
+  _target_: sparsh.tactile_ssl.model.vit_small
+  img_size: 224
+  in_chans: 6
+  patch_size: 16
+
+
+mask_type: random #only supports random for now
+mask_ratio: 0.75
+norm_pix_loss: false
+log_freq_reconstruction: 500
+
+decoder:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.probe.reconstruction.MaskDecoderViT
+  embed_dim: 192
+  depth: 4
+  num_heads: 8
+
+optim_cfg:
+  _partial_: True
+  _target_: torch.optim.AdamW
+  lr: 0.0001
+  weight_decay: 0.05
+
+lr_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.WarmupCosineScheduler
+  steps_per_epoch: ???
+  T_max: ???
+  final_lr: 1.0e-6
+  start_lr: 1.0e-5
+  warmup_epochs: 30
+
+wd_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.CosineWDSchedule
+  final_weight_decay: 0.4
+  ref_weight_decay: 0.04
+  T_max: ???

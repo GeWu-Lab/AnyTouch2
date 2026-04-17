@@ -24,8 +24,9 @@ class TactileVideoMAE(nn.Module):
         config.vision_config.tube_size = tube_size
 
         config.vision_config.mask_ratio = args.mask_ratio
-        config.vision_config.stride = args.stride
-        self.stride = stride = args.stride
+        ### These two 'stride' are actually 'tube_size'
+        config.vision_config.stride = 2
+        self.stride = stride = 2
         self.num_frames = num_frames
 
         self.num_patches_image = int((config.vision_config.image_size // config.vision_config.patch_size) ** 2 *(num_frames // stride) * (1 - config.vision_config.mask_ratio)) + 1 + 5  # +1 for class token, +5 for sensor token

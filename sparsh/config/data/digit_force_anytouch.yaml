@@ -1,0 +1,59 @@
+train_val_split: ~
+train_data_budget: 1.0
+val_data_budget: 1.0
+max_train_data: 100000
+sensor: digit
+
+dataset:
+  _target_: sparsh.tactile_ssl.data.vision_based_forces_slip_probes.VisionForceSlipDataset
+  config:
+    sensor: ${data.sensor}
+    remove_bg: false
+    out_format: "video" # ["video", "concat_ch_img"  "single_image"]
+    num_frames: 4 # num frames in input (for video and concat_ch_img format)
+    frame_stride: 2  # temporal stride between frames in input 
+
+    path_dataset: ${paths.data_root}/digit-force/
+    list_datasets: [
+      "sphere/batch_2",
+      "sharp/batch_2",
+      # "flat/batch_2",
+          # "sphere2/batch_1",
+          # "sphere2/batch_2",
+          # "sphere2/batch_3",
+    ]
+    list_datasets_test: [
+      "flat/batch_1",
+      # "sphere2/batch_test",
+    ]
+    look_in_folder: false
+
+    slip_horizon: 0
+    # max_abs_forceXYZ: [4.0, 8.08, 10.77] # [5.25, 10.61, 14.14]
+    max_abs_forceXYZ: [4.0, 4.0, 5.0]
+    # max_abs_forceXYZ: [5.25, 10.61, 14.14]
+    max_delta_forceXYZ: [0.25, 0.25, 0.15] #N
+
+    sphere_max_abs_forceXYZ: [4.0, 4.0, 5.0] # N
+    sharp_max_abs_forceXYZ: [4.0, 4.0, 5.0] # N
+    hex_max_abs_forceXYZ: [4.0, 4.0, 5.0] # N
+
+    is_anytouch: true
+  
+    transforms:
+      resize: [224, 224]
+
+train_dataloader:
+  batch_size: 100
+  num_workers: 32
+  drop_last: True
+  pin_memory: True
+  persistent_workers: False
+  shuffle: True
+
+val_dataloader:
+  batch_size: 512
+  num_workers: 16
+  drop_last: False
+  pin_memory: True
+  persistent_workers: False

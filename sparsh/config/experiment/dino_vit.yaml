@@ -1,0 +1,45 @@
+# @package _global_
+defaults:
+  - override /paths: ~
+  - override /wandb: ~
+  - override /data: vision_based
+  - override /model: dino_vit
+  - _self_
+
+model_size: base
+model_embed_dim: 768
+experiment_name: sparsh_dino_vit${model_size}
+ckpt_path: ~
+
+wandb:
+  project: sparsh_dino
+  group: dino_vit${model_size}
+  tags: ["vit${model_size}"]
+
+trainer:
+  max_epochs: 200
+
+model:
+  encoder:
+    _target_: sparsh.tactile_ssl.model.vit_${model_size}
+    img_size: [320, 240]
+    in_chans: 6
+    pos_embed_fn: sinusoidal
+
+  dino_head:
+    out_dim: 65536
+
+  online_probes:
+    - _target_: sparsh.tactile_ssl.probe.online_probe.OnlineProbeModule
+      probe_name: "reconstruction"
+      decoder:
+        _target_: sparsh.tactile_ssl.probe.reconstruction.DecoderImage
+        in_chans: 6
+        img_size: [320, 240]
+        patch_size: 16
+        input_embed_dim: ${model_embed_dim}
+        embed_dim: 192
+        depth: 4
+      loss_fn:
+        _target_: torch.nn.MSELoss
+

@@ -1,0 +1,41 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~
+  - /data: gelsight_force
+  - /task: t2_slip_detection
+  - _self_
+
+ssl_name: e2e
+sensor: gelsight
+ckpt_path: ~
+
+data:
+  dataset:
+    config:
+      list_datasets: [
+          sphere/batch_1,
+          sphere/batch_3,
+          sphere/batch_4,
+          sphere/batch_5,
+          sphere/batch_6,
+      ]
+      list_datasets_test: [
+          sphere/batch_test,
+      ]
+      max_delta_forceXYZ: [0.80, 0.80, 0.40] #N
+
+test:
+  data:
+    dataset_name: ["sphere/batch_test"]
+
+trainer:
+  save_probe_weights_only: false
+    
+task: 
+  model_encoder:
+    num_register_tokens: 0
+    
+  checkpoint_encoder: ~
+  train_encoder: true
+  checkpoint_task: ~

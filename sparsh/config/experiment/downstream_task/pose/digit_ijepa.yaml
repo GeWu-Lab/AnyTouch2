@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~
+  - /data: digit_pose
+  - /task: t3_pose_estimation
+  - _self_
+
+ssl_name: ijepa
+sensor: digit
+ckpt_path: ~

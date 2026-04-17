@@ -1,0 +1,23 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~
+  - /data: gelsight_force
+  - /task: t1_force_estimation
+  - _self_
+
+ssl_name: vjepa
+sensor: gelsight
+ckpt_path: ~
+
+data:
+  dataset:
+    config:
+      out_format: video
+      num_frames: 4
+      frame_stride: 2
+      
+task:
+  model_encoder:
+    in_chans: 3
+    num_frames: 4

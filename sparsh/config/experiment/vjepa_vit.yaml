@@ -1,0 +1,55 @@
+# @package _global_
+defaults:
+  - override /paths: ~
+  - override /wandb: ~
+  - override /data: vision_based
+  - override /model: vjepa_vit
+  - _self_
+
+model_size: base
+model_embed_dim: 768
+experiment_name: sparsh_vjepa_vit${model_size}
+ckpt_path: ~
+data_out_format: 'video' # ["video", "concat_ch_img"  "single_image"]
+num_frames: 4 # num frames in input (for video and concat_ch_img format)
+frame_stride: 2 # temporal stride between frames in input
+
+wandb:
+  project: sparsh_vjepa
+  group: vjepa_vit${model_size}
+  tags: ["vit${model_size}"]
+
+trainer:
+  max_epochs: 200
+
+model:
+  patch_size: 16
+  num_frames: 4
+
+  encoder:
+    _target_: sparsh.tactile_ssl.model.vit_${model_size}
+  predictor:
+    input_dim: ${model_embed_dim}
+    num_heads: 12
+    zero_init_mask_tokens: True
+
+  optim_cfg:
+    _target_: torch.optim.AdamW
+    lr: 0.000625
+    weight_decay: 0.04
+
+  moving_average_decay: [0.997, 1.0]
+
+  lr_scheduler_cfg:
+    final_lr: 1.0e-6
+    start_lr: 0.0002
+    warmup_epochs: 40
+
+  wd_scheduler_cfg:
+    final_weight_decay: 0.4
+    ref_weight_decay: 0.04
+
+  loss_cfg:
+    loss_exp: 1.0
+    reg_coeff: 0.0
+

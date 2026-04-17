@@ -1,0 +1,89 @@
+_target_: sparsh.tactile_ssl.algorithm.VJEPAModule
+
+img_size: &img_size [320, 240]
+patch_size: &patch_size 16
+num_frames: &num_frames 4
+tubelet_size: &tubelet_size 2
+moving_average_decay: [0.998, 1.0]
+reconstruction_log_freq: 500
+
+encoder:
+  _target_: sparsh.tactile_ssl.model.vit_small
+  img_size: *img_size
+  in_chans: 3
+  patch_size: *patch_size
+  num_frames: *num_frames
+  tubelet_size: *tubelet_size
+
+predictor:
+  _target_: sparsh.tactile_ssl.model.vit_predictor
+  img_size: *img_size
+  num_mask_tokens: 2
+  patch_size: *patch_size
+  num_frames: *num_frames
+  tubelet_size: *tubelet_size
+  input_dim: ${model_embed_dim}
+  num_heads: 6
+  depth: 12
+  embed_dim: 384
+  pos_embed_fn: sinusoidal
+
+optim_cfg:
+  _partial_: True
+  _target_: torch.optim.AdamW
+  lr: 0.000625
+  weight_decay: 0.04
+
+lr_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.WarmupCosineScheduler
+  steps_per_epoch: ???
+  T_max: ???
+  final_lr: 1.0e-6
+  start_lr: 0.0002
+  warmup_epochs: 40
+
+wd_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.CosineWDSchedule
+  final_weight_decay: 0.4
+  ref_weight_decay: 0.04
+  T_max: ???
+
+
+
+mask_cfg:
+  - aspect_ratio: [0.75, 1.5]
+    num_blocks: 8
+    spatial_scale: [0.15, 0.15]
+    temporal_scale: [1.0, 1.0]
+    max_temporal_keep: 1.0
+    max_keep: null
+  - aspect_ratio: [0.75, 1.5]
+    num_blocks: 2
+    spatial_scale: [0.7, 0.7]
+    temporal_scale: [1.0, 1.0]
+    max_temporal_keep: 1.0
+    max_keep: null
+
+loss_cfg:
+  loss_exp: 1.0
+  reg_coeff: 1.0
+
+online_probes:
+  - _target_: sparsh.tactile_ssl.probe.online_probe.OnlineProbeModule
+    probe_name: 'reconstruction'
+    decoder:
+        _target_: sparsh.tactile_ssl.probe.reconstruction.DecoderImage
+        in_chans: 3
+        img_size: *img_size
+        patch_size: *patch_size
+        num_frames: *num_frames
+        tubelet_size: *tubelet_size
+        input_embed_dim: ${model_embed_dim}
+        embed_dim: 192
+        depth: 4
+    loss_fn:
+        _target_: torch.nn.MSELoss
+
+online_probes_lrs: [1e-4]

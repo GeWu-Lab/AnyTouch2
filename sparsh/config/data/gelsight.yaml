@@ -1,0 +1,76 @@
+train_val_split: ~
+train_data_budget: 1.0
+val_data_budget: 1.0
+max_train_data: ~
+sensor: gelsight_mini
+
+dataset:
+  _target_: sparsh.tactile_ssl.data.vision_tactile_forcefield.VisionTactileForceFieldDataset
+  config:
+    sensor: ${data.sensor}
+    remove_bg: true
+    out_format: "concat_ch_img" # ["video", "concat_ch_img"  "single_image"]
+    num_frames: 2 # num frames in input (for video and concat_ch_img format)
+    frame_stride: 5  # temporal stride between frames in input 
+
+    path_dataset: ${paths.data_root}/datasets/gelsight/Object-Slide/
+    path_bgs: ${paths.data_root}/datasets/gelsight/Object-Slide/bgs/
+    list_datasets: [
+        "strawberry/dataset_0",
+        "strawberry/dataset_1",
+        "strawberry/dataset_2",
+        "plum/dataset_0",
+        "plum/dataset_1",
+        "plum/dataset_2",
+        "icecream_cup/dataset_0",
+        "icecream_cup/dataset_1",
+        "icecream_cup/dataset_2",
+        "donut/dataset_0",
+        "donut/dataset_1",
+        "donut/dataset_2",
+        "cookie2/dataset_0",
+        "cookie2/dataset_1",
+        "cookie2/dataset_2",
+        "bread/dataset_0",
+        "bread/dataset_1",
+        "bread/dataset_2",
+        "banana/dataset_0",
+        "banana/dataset_1",
+        "banana/dataset_2",
+        "bagel/dataset_0",
+        "bagel/dataset_1",
+        "bagel/dataset_2",
+      ]
+    list_datasets_test: [
+        "bagel/dataset_3",
+        "banana/dataset_3",
+        "bread/dataset_3",
+        "cookie2/dataset_3",
+        "donut/dataset_3",
+        "icecream_cup/dataset_3",
+        "plum/dataset_3",
+        "strawberry/dataset_3",
+      ]
+    look_in_folder: false
+       
+    transforms:
+      with_augmentation: false
+      resize: [224, 224]
+      p_flip: 0.0
+      p_crop: 0.0
+      p_rot: 0.0
+
+train_dataloader:
+  batch_size: 30
+  num_workers: 1
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True
+  shuffle: True
+
+val_dataloader:
+  batch_size: 30
+  num_workers: 1
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True

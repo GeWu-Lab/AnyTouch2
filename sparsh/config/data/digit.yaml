@@ -1,0 +1,135 @@
+train_val_split: ~
+train_data_budget: 1.0
+val_data_budget: 1.0
+max_train_data: ~
+sensor: digit
+
+dataset:
+  _target_: sparsh.tactile_ssl.data.vision_tactile_forcefield.VisionTactileForceFieldDataset
+  config:
+    sensor: ${data.sensor}
+    remove_bg: true
+    out_format: "concat_ch_img" # ["video", "concat_ch_img"  "single_image"]
+    num_frames: 2 # num frames in input (for video and concat_ch_img format)
+    frame_stride: 5  # temporal stride between frames in input 
+
+    path_dataset: ${paths.data_root}/datasets/digitv1/Object-Slide/
+    path_bgs: ${paths.data_root}/datasets/digitv1/Object-Slide/bgs/
+    list_datasets: [
+        "004_sugar_box/dataset_0",
+        "025_mug/dataset_0",
+        "048_hammer/dataset_0",
+        "005_tomato_soup_can/dataset_0",
+        "035_power_drill/dataset_0",
+        "055_baseball/dataset_0",
+        "006_mustard_bottle/dataset_0",
+        "037_scissors/dataset_0",
+        "021_bleach_cleanser/dataset_0",
+        "042_adjustable_wrench/dataset_0",
+        "004_sugar_box/dataset_1",
+        "025_mug/dataset_1",
+        "048_hammer/dataset_1",
+        "005_tomato_soup_can/dataset_1",
+        "035_power_drill/dataset_1",
+        "055_baseball/dataset_1",
+        "006_mustard_bottle/dataset_1",
+        "037_scissors/dataset_1",
+        "021_bleach_cleanser/dataset_1",
+        "042_adjustable_wrench/dataset_1",
+        "004_sugar_box/dataset_2",
+        "025_mug/dataset_2",
+        "048_hammer/dataset_2",
+        "005_tomato_soup_can/dataset_2",
+        "035_power_drill/dataset_2",
+        "055_baseball/dataset_2",
+        "006_mustard_bottle/dataset_2",
+        "037_scissors/dataset_2",
+        "021_bleach_cleanser/dataset_2",
+        "042_adjustable_wrench/dataset_2",
+        "004_sugar_box/dataset_3",
+        "025_mug/dataset_3",
+        "048_hammer/dataset_3",
+        "005_tomato_soup_can/dataset_3",
+        "035_power_drill/dataset_3",
+        "055_baseball/dataset_3",
+        "006_mustard_bottle/dataset_3",
+        "037_scissors/dataset_3",
+        "021_bleach_cleanser/dataset_3",
+        "042_adjustable_wrench/dataset_3",
+        "banana/dataset_0",
+        "banana/dataset_1",
+        "banana/dataset_2",
+        "banana/dataset_3",
+        "bread/dataset_0",
+        "bread/dataset_1",
+        "bread/dataset_2",
+        "bread/dataset_3",
+        "cheese/dataset_0",
+        "cheese/dataset_1",
+        "cheese/dataset_2",
+        "cheese/dataset_3",
+        "cookie/dataset_0",
+        "cookie/dataset_1",
+        "cookie/dataset_2",
+        "cookie/dataset_3",
+        "corn/dataset_0",
+        "corn/dataset_1",
+        "corn/dataset_2",
+        "corn/dataset_3",
+        "lettuce/dataset_0",
+        "lettuce/dataset_1",
+        "lettuce/dataset_2",
+        "lettuce/dataset_3",
+        "plum/dataset_0",
+        "plum/dataset_1",
+        "plum/dataset_2",
+        "plum/dataset_3",
+        "strawberry/dataset_0",
+        "strawberry/dataset_1",
+        "strawberry/dataset_2",
+        "strawberry/dataset_3",
+        "tomato/dataset_0",
+        "tomato/dataset_1",
+        "tomato/dataset_2",
+        "tomato/dataset_3",
+        "sphere/dataset_0",
+        "sphere/dataset_1",
+        "sphere/dataset_2",
+      ]
+    list_datasets_test: [
+        "004_sugar_box/dataset_4",
+        "025_mug/dataset_4",
+        "048_hammer/dataset_4",
+        "005_tomato_soup_can/dataset_4",
+        "035_power_drill/dataset_4",
+        "055_baseball/dataset_4",
+        "006_mustard_bottle/dataset_4",
+        "037_scissors/dataset_4",
+        "021_bleach_cleanser/dataset_4",
+        "042_adjustable_wrench/dataset_4",
+        "sphere/dataset_1",
+        "sphere/dataset_2",
+      ]
+    look_in_folder: false
+       
+    transforms:
+      with_augmentation: false
+      resize: [224, 224]
+      p_flip: 0.0
+      p_crop: 0.0
+      p_rot: 0.0
+
+train_dataloader:
+  batch_size: 100
+  num_workers: 2
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True
+  shuffle: True
+
+val_dataloader:
+  batch_size: 100
+  num_workers: 2
+  drop_last: True
+  pin_memory: True
+  persistent_workers: True

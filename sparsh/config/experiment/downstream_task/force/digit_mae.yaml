@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~
+  - /data: digit_force
+  - /task: t1_force_estimation
+  - _self_
+
+ssl_name: mae
+sensor: digit
+ckpt_path: ~
+
+task:
+  model_encoder:
+    num_register_tokens: 0
+

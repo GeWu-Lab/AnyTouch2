@@ -1,0 +1,32 @@
+defaults:
+  - paths: default
+  - wandb: akash
+  - data: xela
+  - model: byol_alexnet
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - _self_
+
+seed: 42
+model_size: base
+model_embed_dim: 768
+resume_id: null
+ckpt_path: ~
+experiment_name: default_${model_size}
+data_out_format: 'concat_ch_img'
+num_frames: 2
+frame_stride: 5
+
+trainer:
+  max_epochs: ~
+  grad_clip_norm: 10.0
+  validation_frequency: 10
+  checkpoint_frequency: 20
+  log_frequency: 500
+  save_checkpoint_dir: ${paths.output_dir}/checkpoints
+
+hydra:
+  job:
+    id: ${now:%Y.%m.%d}-${now:%H-%M}
+  run:
+    dir: ${paths.log_dir}/${experiment_name}/${hydra.job.id}

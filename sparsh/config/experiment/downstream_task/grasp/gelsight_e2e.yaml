@@ -1,0 +1,22 @@
+# @package _global_
+defaults:
+  - /paths: ~
+  - /wandb: ~ 
+  - /data: gelsight_grasp
+  - /task: t4_grasp_stability
+  - _self_
+
+ssl_name: e2e
+sensor: gelsight
+ckpt_path: ~
+
+trainer:
+  save_probe_weights_only: false
+
+task: 
+  model_encoder:
+    num_register_tokens: 0 
+    
+  checkpoint_encoder: ~
+  train_encoder: true
+  checkpoint_task: ~

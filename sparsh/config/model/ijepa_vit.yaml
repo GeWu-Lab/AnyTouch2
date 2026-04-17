@@ -1,0 +1,56 @@
+_target_: sparsh.tactile_ssl.algorithm.IJEPAModule
+encoder:
+  _target_: sparsh.tactile_ssl.model.vit_small
+  img_size: 224
+  in_chans: 3
+  patch_size: 16
+min_keep_num_patches: 10
+aspect_ratio: [0.75, 1.5]
+encoder_mask_scale: [0.85, 1.0]
+predictor_mask_scale: [0.15, 0.2]
+moving_average_decay: 0.996
+reconstruction_log_freq: 500
+
+predictor:
+  _target_: sparsh.tactile_ssl.model.vit_predictor
+  input_dim: 384
+  patch_size: 16
+  embed_dim: 128
+  pos_embed_fn: sinusoidal
+optim_cfg:
+  _partial_: True
+  _target_: torch.optim.AdamW
+  lr: 1e-3
+  weight_decay: 1e-5
+
+lr_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.WarmupCosineScheduler
+  steps_per_epoch: ???
+  T_max: ???
+  final_lr: 1.0e-6
+  start_lr: 0.0002
+  warmup_epochs: 30
+
+wd_scheduler_cfg:
+  _partial_: True
+  _target_: sparsh.tactile_ssl.model.custom_scheduler.CosineWDSchedule
+  final_weight_decay: 0.4
+  ref_weight_decay: 0.04
+  T_max: ???
+
+online_probes:
+  - _target_: sparsh.tactile_ssl.probe.OnlineProbeModule
+    probe_name: 'reconstruction'
+    decoder:
+        _target_: sparsh.tactile_ssl.probe.reconstruction.DecoderImage 
+        in_chans: 6
+        img_size: [320, 240]
+        patch_size: 16
+        input_embed_dim: ${model_embed_dim}
+        embed_dim: 192
+        depth: 4
+    loss_fn:
+        _target_: torch.nn.MSELoss
+
+online_probes_lrs: [1e-4]

@@ -1,0 +1,7 @@
+project: tactile_ssl
+entity: carohiguera
+save_dir: ${paths.output_dir}
+id: ${hydra:job.id}_${experiment_name} # Pass correct id to resume a run
+tags: []
+group: ${experiment_name}
+notes: ~
